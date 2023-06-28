@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+    <h1>All about arrays</h1>
+    <script>
+        // const points = new Array();     // Bad
+        // const points = [];              // Good 
+
+        // Constant Arrays
+        // const cars = ["Saab", "Volvo", "BMW"];
+        // cars[0] = "Toyota";      // You can change an element:
+        // cars.push("Audi");      // You can add an element:
+
+        let arr = [1, 2, 3, 4, 11, 21, 13]; // idx -> 0, 1, 2, ...
+        // console.log("element at idx 4 is",arr[4]);
+        // arr[4]=5;
+        // let ind=arr.indexOf(21);
+        // console.log("index of 21 is",ind);
+
+        //original array change below 
+        // arr.push(76);    //insert at ending
+        // arr.unshift(0);  // starting (bdha h bdha kregha)
+        // console.log(arr);
+
+        // arr.pop();       //remove from ending & returns console.log(arr.pop());
+        // arr.shift();     //starting & returns 
+        // console.log(arr);
+
+        //Clone array
+        // console.log("All about cloning");
+        let z61 = ["a", "b", "c"];
+        // let z61$=z61;
+        // console.log("Is array equal",z61$===z61); //true
+
+        // let z62=z61;            //(m-1) not good, reference type, both change
+        // let z62=["a", "b","c"]; //(m-2) not good
+        // let z62=z61.slice(0);   //(m-3)   good
+        // let z62=z61.slice(0).concat(["d","e"]);      //extra add
+        // let z62=[].concat(z61); //(m-4) ok ok
+        // let z62=[].concat(z61,["d","e"]);            //extra add
+
+        // spread operator
+        let z62 = [...z61]; //(m-5) good
+        // let z62=[...z61,"d","e"]; //extra add
+        // let z63=["d","e"];
+        // let z62=[...z61,...z63]; //extra add
+        // console.log("z61===z62 is: ",z61===z62); // (m-1) then true; else false;
+
+        // console.log("Is array equal",["a","b"]===["a","b"]); //false
+        // console.log("Is array equal",["a","b"]==["a","b"]); //false(compare address, values)
+
+
+        //Loops (for-of), (for-in), (forEach)
+        //for-of loop               (good for simple iteration)
+        const z71 = ["z", "y", "x"];
+        // for(let zzz of z71)
+        // { console.log(zzz);}        //bracket for multiple lines
+
+        //for-in loop 
+        const z81 = ["z", "y", "x"];
+        // for(let ind in z81)       //ind as a index
+        // console.log(z81[ind]);
+
+        const arr123 = [1, 2, 3, 4];
+        arr123.forEach(function (a, b, c) {
+            console.log(a, b, c);   // default element , index,  array
+        });
+
+        //Array destructing
+        //1. size less than variables then remaining will be undefined
+        //2. size greater then may use ,(comma)
+        //ex. let [a,,b]=z91;
+        const z91 = ["z", "y", "x"];
+        // let [Sa,Sb,Sc]=z91;
+        // console.log(Sa,Sb,Sc);
+
+        const z92 = ["z", "y", "x", "w"];
+        let [sd, se, ...newz92] = z92;              // === let newz92=z92.slice(2);
+        // console.log(Array.isArray(sd));          //false
+        // console.log(Array.isArray(newz92));      //true
+        const z97 = [..."123456789"];
+        // const z97=[...123456789]; // 123456789 is not iterable
+        // console.log("z97",z97);
+        // console.log(Array.isArray(z97));
+    
+    
+        // Nested destructing
+        const z100 = [
+            { perId: 1, name: "Ashok" },
+            { perId: 2, name: "Abhishek" }
+                     ];
+        // let [acc11,acc12]=z100;
+        // console.log(acc11,acc12);
+
+        // let [{perId:rank},{name}]=z100;
+        // console.log(rank,name);
+
+
+        //  You can have functions in an Array. 
+        const arrWithFun = ["array", function () {
+                                        console.log("function inside array");
+                                                }
+                            ];
+        // console.log(arrWithFun);
+        // console.log(arrWithFun[1]); //print syntax
+        // arrWithFun[1](); 
+
+
+
+        // Associative Arrays (understand later )
+
+        // JavaScript does not support arrays with named indexes.
+        // If you use named indexes, JavaScript will redefine the array to an object.
+        // After that, some array methods and properties will produce incorrect results.
+        // Example:
+        const person123 = [];
+        person123["firstName"] = "John";
+        // person123["lastName"] = "Doe";
+        // person123["age"] = 46;
+        // console.log(person123);
+        // console.log(typeof person123);
+        // console.log(Array.isArray(person123)); //true
+
+        // console.log(person123.length);     // Will return 0
+        // console.log(Object.getPrototypeOf(person123));
+        // console.log(person123[0]);         // Will return undefined
+        // console.log(person123["firstName"]);    //John    
+
+        
+        let fruits = ["Ashok", 18, 1.234]; 
+        // How to Recognize an Array
+        // console.log(Array.isArray(fruits)) ;    //m-1
+        // console.log(fruits instanceof Array);   //m-2 
+
+        //  console.log("change all array's elements to string");
+       const arrToString = fruits.toString(); //The JavaScript method toString() converts an array to a string of (comma separated) array values and return it, immutable
+
+        //  console.log(arrToString, typeof arrToString);
+        //  console.log(fruits);
+
+
+
+        console.log("All about strings");
+        const str1 = 'ASHOK Kumar teli';
+        // const str2='Ashok   Ashok';
+        // console.log(str1.length);
+        // console.log(str1.indexOf('K'));//1st -> 4
+        // console.log(str2.indexOf('A'));
+        // console.log(str1.lastIndexOf('K'));
+        // console.log(str2.charAt(2));
+        // console.log(str2.endsWith('dg')); // true or false
+        // console.log(str2.includes('hd')); //true of false
+        // console.log(str1.slice(2, 10));  //The slice[first,last) method returns selected elements, doesn't change the original
+        // console.log(str1.substring(6, 11));  //The substring(first,last) method returns selected elements, doesn't change the original
+        // const d=str2.replace("  Ashok","Sahu");
+        // console.log(d);
+        // console.log(str1.toUpperCase());
+        // console.log("split with string",str1.split(' ')); //store in array
+    </script>
+</body>
+</html>

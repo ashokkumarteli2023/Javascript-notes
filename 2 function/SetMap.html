@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set and Map data structure</title>
+</head>
+<body>
+    <h1>All about Set and Map</h1>
+    <script>
+    //sets 
+    //store data (can be of different^2 type)
+    
+    const playWithSet=new Set([1,2,3]); 
+    // console.log(playWithSet,"end");
+    
+
+    const playWithSet1=new Set("abc");
+    // console.log(playWithSet1);
+
+    const setVar=new Set();
+    // console.log(setVar); //empty
+
+    // set has its own methods add(),has(),
+    //add()
+    setVar.add(1);
+    setVar.add(2);
+    setVar.add(3);
+    setVar.add(4);
+    // console.log(setVar,"end"); //order is not guranteed
+
+    setVar.add(4);
+    // console.log(setVar);//same becoz duuplicates not allowed
+
+    setVar.add("stringSet");
+    // console.log(setVar);
+
+    // (it is iterable)
+    // for(let sVar of setVar)
+        // console.log(sVar);
+
+    // console.log(setVar[2],"end"); //undefined (not accessable using index)
+    
+    //both added becoz diff-^2 address
+    setVar.add(["a","b"]);
+    setVar.add(["a","b"]);
+    // console.log(setVar);
+
+    // console.log(setVar.length);//undefined can't use length property
+
+    let sBool=setVar.has(1);//return true/false
+    // console.log(sBool);
+    // console.log(setVar.has(["a","b"]),"?"); //false
+    
+    
+    // console.log("Map (not map method");
+    //store     key,value pair
+    const mapVar=new Map(); //empty
+    // console.log(mapVar,"map");
+
+    //it has its own methods
+    mapVar.set('name','Ashok'); //key->string
+    mapVar.set(1,'One'); //key->number
+    // key can be of any type like string, number, array, object etc.
+    mapVar.set([1,2,3],'OneTwoThree');
+    mapVar.set({age:23},'One');
+    // console.log(mapVar,"map with set"); //stored in ordered fashion
+
+    //duplicate keys not allowed
+    mapVar.set({age:23},'ten'); //work
+    mapVar.set(1,'two'); // update value in case of same key
+
+    // console.log(mapVar.name);//not work
+    // console.log(mapVar.get('name'),"name");
+    // console.log(mapVar.get(1));
+    
+    // console.log(mapVar.keys(),"keys");//keys collection
+
+    // console.log("type is:",typeof mapVar.keys());
+    // console.log(" isArray:",Array.isArray(mapVar.keys())); //false
+
+    // for(let key of mapVar)
+    //     console.log(key); //array of [key,value]
+        // console.log(mapVar);
+        
+    // for(let key of mapVar.keys())
+    //     console.log(key);
+    // console.log("for -of with map....");
+
+    //not giving error    object but not array then what?
+
+    //????
+    // for(let ind in mapVar.keys())
+    //   console.log("for-in",ind); //nothing in o/p
+        // console.log("end");
+console.log("bhim",mapVar.size);
+for(let value of mapVar.values())
+        console.log(value);
+   
+        mapVar.forEach((value,key)=>{
+            console.log("value us",value);
+            console.log("key us",key);
+        })
+
+let myArray=Array.from(mapVar);
+let keyArray=Array.from(mapVar.keys());
+let valueArray=Array.from(mapVar.value());
+    // for(let vaR of mapVar) //var is Array
+    // {
+    //     console.log( vaR);
+    //     console.log(Array.isArray(vaR));
+    // }
+
+    // for(let [key,value] of mapVar)
+    // {
+    //     console.log(key,value);
+    // }
+
+    for(let keysss in mapVar)
+    {
+        console.log(keysss); //no o/p
+        // console.log(mapVar[keysss]);//no o/p
+    }
+    // console.log("for - in in map")
+    
+    // const mapFromArray= new Map([["name","Ashok"],["age",20]]);
+    // const mapFromArray= new Map([["name","Ashok","Kumar"],["age",20]]);
+    const mapFromArray= new Map([["name","Ashok","Kumar","20"],["age",20]]);
+    // console.log(mapFromArray);
+
+    
+    //use
+    const person1={
+        name:"Ashok",
+        gender:"male"
+    };
+    //store extra infor w/o changing original object
+    const extraInfoPerson1=new Map();
+    extraInfoPerson1.set(person1,{age:20, salary:200000});
+    // console.log(extraInfoPerson1,"sfkng");
+    // console.log(extraInfoPerson1.get(person1));
+    // console.log(extraInfoPerson1.get(person1).age);
+
+    
+    // Object cloning {spread,Object.assign,
+         const obj11={
+             a:"97",
+             A:"65"
+         };
+         const obj12=Object.assign({},obj11);
+        //  const obj12=Object.assign({1:"48"},obj11);//work
+        //  console.log(obj12);
+    
+// optional chaining
+const obj13={
+             a:"97",
+             A:"65",
+             number:{1:"48",2:"49"}
+         };
+// console.log(obj13.number);
+// console.log(obj13.number["1"]);
+// console.log(obj13.data);//undefined
+
+// console.log(obj13.data.key1);//Error,can't read property of undefined
+console.log(obj13?.data?.key1);//ans either value or undefined
+</script>
+</body>
+</html>

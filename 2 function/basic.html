@@ -1,0 +1,177 @@
+<!-- //sort, -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function tutorial</title>
+</head>
+<body>
+    <h1>Function</h1>
+    <script>
+        // Function declaration
+        function printSum1(num1,num2){
+            return num1+num2;
+        }
+        let a=printSum1(3,9);
+        // console.log("sum is:",a);
+
+        let b=printSum1(3);
+        // console.log(b); //NaN
+        //because undefined + anything=NaN
+
+        let c=printSum1(111,2,3,4,5); 
+        // console.log(c); //113 => first 
+        
+        
+        //Function expression (Name goes left side)
+        const printSum2=function(num1,num2){
+            return num1+num2;
+        }
+        // console.log(printSum2(1,4));
+
+       
+        //Function arrow
+        const printSum3= (num1,num2)=>{
+            return num1+num2;
+        }
+        // console.log(printSum3(3,4));
+
+        // single return line as above then we can write
+        // steps- remove curly braces then remove return  and write in front of =>
+        // const printSum3= (num1,num2)=>   num1+num2;
+        
+        // const isEven =(num3)=> num3%2===0;
+        // const isEven =num3 => num3%2===0;            //single para.
+        // console.log(isEven(4));
+
+        
+        //Hoisting
+        // hello(); //work in case of function declaration only not in fuction expression or arrow.
+        function hello()
+        {
+            console.log("Hello World!");
+        }
+
+        // console.log(num4); //*undefined* in case of var type only not in let or const(error);
+        // var num4=5;
+
+       
+        //Functions inside function
+        function par(){
+            function child1(){
+                console.log("Child 1");
+            }
+            const child2=function()
+            {
+                console.log("Child 2");
+            }
+            const child3=()=>{
+                console.log("Child 3");
+            }
+            console.log("Parent");
+            child1();
+            child3();
+            child2();
+        }
+        // par();
+
+        
+        //Lexical scope
+        let num5=6;
+        function par1(){
+            let num5=5;
+            function child4(){
+                console.log("Child-4");
+                let num5=4;
+                console.log(num5); //4
+            }
+            const child5=function()
+            {
+                console.log("Child-5");
+                console.log(num5);  //5
+            }
+            const child6=()=>{
+                console.log("Child-6");
+                let num5=3;
+                function child7(){
+                    console.log("Child-7");
+                    console.log(num5);
+                }
+                child7();
+            }
+            console.log("Parent1",num5); //5 becoz lexical scope
+            // child4();
+            // child5();
+            // child6();
+        }
+        // par1();
+
+        
+        //Default parameter value
+        // const sum3=(a,b,c=0)=>  a+b+c;
+        // console.log(sum3(3,4));
+
+        
+        //Rest parameter
+        // const SumAllNum=function(a,b,...c){
+        //     let sum=a+b;
+        //     for(let z of c)  // c array
+        //          sum+=z;
+        //     return sum;
+        // }
+        // let num8=SumAllNum(1,2,3,4,5,6,8,7,9,10);
+        // console.log(num8);
+
+        
+        //Para destructing
+        const obj={
+            name:"Ashok",
+            gender:"Male"
+        };
+
+        //m-1
+        // function objFun(objec)
+        // {
+        //     console.log("name is",objec.name);
+        //     console.log("gender is",objec.gender);
+        // }
+
+        //m-2
+        function objFun({name, gender})
+        {
+            console.log("name:",name,"& gender:",gender);
+            
+        }
+        // objFun(obj);
+
+
+        //Callback function
+        function funArg()
+        {
+            console.log("Function as an argument");
+        }
+        function fun(callback)                  //callback is a function 
+        {
+            callback(); //work
+        }
+        // fun(funArg);
+
+
+        //Function returning function
+        function returnFun()
+        {
+            console.log("I am a returning o/p of a function");
+        }
+        function funWhichReturn()
+        {
+            console.log("I am a function and I return a function");
+            return returnFun;
+        }
+        // funWhichReturn();
+        const num9=funWhichReturn(); //num9 is function
+        num9(); //calling function
+    </script>
+</body>
+</html>

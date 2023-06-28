@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP in JS</title>
+</head>
+<body>
+    <h1>let's start</h1>
+    <script>
+        // console.log(document.getElementsByTagName("h1").prototype); //trial
+        // Class in JS
+        class CreateUser{
+            constructor(name,gender,age){
+                console.log("Constructor invoked");
+                this.name=name;
+                this.gender=gender;
+                this.age=age;
+                //no need to return it return itself
+            }
+            about()
+            {
+                return `${this.name} is ${this.age} years old`;
+            }
+            is18()
+            {
+                if(this.age>=18) return true;
+                else false;
+            }
+        }
+        // console.log("start");
+        // CreateUser();//error (Class constructor *CreateUser* cannot be invoked without 'new')
+        // const per1=new CreateUser("Ashok","Male",21.5);  //object or instance
+        // console.log(per1,"end");
+        // console.log(typeof per1);        //object
+        // console.log(per1.about());
+
+        // console.log(CreateUser.prototype);
+        // console.log(Object.getPrototypeOf(per1)); //internal [[prototype]]
+
+        
+        class Animal{
+            constructor(name,age)
+            {
+                console.log("Animal class constructor invoked!!!");
+                this.name=name;
+                this.age=age;
+            }
+            eat()
+            {
+                return `${this.name} is eating`;
+            }
+        }
+        // const animal1= new Animal("Muni",0.25);
+        // console.log(animal1);
+        // console.log(animal1.eat());
+
+       
+        //repetation
+        //extends
+        class Cat extends Animal{
+
+        }
+        // const cat1= new Cat("Sona",0.25);
+        // console.log(cat1);
+        // console.log(cat1.eat());
+
+        //if i have to store extra info like speed
+        //super()
+        class Tiger extends Animal{
+            constructor(name,age,speed)
+            {
+                super(name,age);
+                this.speed=speed;
+            }
+            run()
+            {
+                return `${this.name} runs at ${this.speed}Kmph`;
+            }
+            changeNameAge(name,age)
+            {
+                this.name=name;
+                this.age=age;
+                return  `${this.name} and ${this.age}`;
+            }
+            get nameage()
+            {
+               return `${this.name} ${this.age}`;
+            }
+            set nameage(nameage)
+            {
+                const [name,age]=nameage.split(",");
+                // The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array
+                this.name=name;
+                this.age=age;
+            }
+        }
+        // const tiger=new Tiger("Tiger",3,60);
+        // console.log(tiger);  
+        // console.log(tiger.eat());
+        // console.log(tiger.run());
+        
+        
+        // getter
+        // console.log(tiger.nameage,"end"); //work
+
+
+        //name and age ko change 
+        //way-1
+        // tiger.name="Krishna";
+        // tiger.age=5;
+        // console.log(tiger);
+
+        //way-2 make a new method
+        // console.log(tiger.changeNameAge("Sheru",7));
+        // console.log(tiger);
+
+        //way-3   (setter)
+        // tiger.nameage="gabral,5";
+        // console.log(tiger); 
+        
+        
+        //Static className se direct call kr skte(no need of obj)
+
+        class AnimalInfo{
+            constructor(name,age)
+            {
+                console.log("constructor invoked of animal info");
+                this.name=name;
+                this.age=age;
+            }
+            static dance()
+            {
+                console.log("let's dance");
+            }
+            static staPro="static property";
+            eat()
+            {
+                return `${this.name} is eating`;
+            }
+        }
+        // const animalInfoObj=new AnimalInfo("kaka",25);
+        // AnimalInfo.dance();
+        // console.log(animalInfoObj);  //no static functions/variables
+        // animalInfoObj.dance() //! work
+        // console.log(AnimalInfo.staPro);
+    </script>
+    <script src="./basic.js"></script>
+</body>
+</html>

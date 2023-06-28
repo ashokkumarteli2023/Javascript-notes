@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>All about objects</h1>
+    <script>
+        
+        // Objects are variables too. But objects can contain many values.
+        // key(property), value
+        // let person = {firstName:"John", 
+                        // lastName:"Doe", 
+                        // age:50,
+                        // eyeColor:"blue"
+                        // };
+        // document.write("<br>",typeof person); //object
+        // Access => objectName["propertyName"] or objectName.propertyName 
+        // document.write("<br>",person["firstName"]); // key by deafult string
+        // document.write("<br>",person.firstName);
+
+        // person.age=20; // changes  
+        // document.write("<br>",person.age);
+
+        // person.height=62;  //addition
+        // document.write("<br>",person.height,"<br>");
+        
+        // let car = {type:"Fiat", model:"500", color:"white"};
+        // car = {type:"Volvo", model:"EX60",color:"red"};  // reassign
+        // car = {type:"Volvo", model:"EX60"};  // reassign
+        // console.log(car);
+        
+        //Difference  b/w dot and square bracket 
+        let personData1 = {
+            name: "Ashok",
+            "age": 20,
+            gender: "male",
+            hobbies: ["Read", "Watch", "Listen"],
+            "family members": ["p", "q", "r"]
+        };
+
+        //diff-1
+        // console.log(personData1.family members); // invalid
+        // console.log(personData1["family members"]);
+
+        //diff-2
+        const key = "email";
+        // personData1.key="xyz@gmail.com"; //key ka hi key bn gya lol
+        personData1[key] = "xyz@gmail.com";
+        // console.log(personData1);
+
+
+        //Iterate objects
+        // (m-1) for-in loop
+        for (let hmm in personData1)// key->variable
+        {
+            // console.log(hmm);
+            // console.log(personData1[hmm]);        
+            // console.log(personData1.hmm);//undefined
+            //don't use inside loop ????
+        }
+
+
+        //m-2 Object.keys(objectVariableName)
+        // return array of keys then for-of loop
+        for (let key of Object.keys(personData1)) {
+            // console.log(key);
+            // console.log(personData1[key]);
+            // console.log(`${key} : ${personData1[key]}`);
+        }
+
+        // document.write("<br>type is array:",Array.isArray(Object.keys(personData1))); //true
+
+        // initializing object
+        const z93 = "key1";
+        const z94 = "key2";
+        const z95 = "value1";
+        const z96 = "value2";
+        let myobj = {};
+        // by doing this myobj will not be iterable what!!!
+        myobj[z93] = z95;
+        myobj[z94] = z96;
+        // console.log(myobj);
+        // for(let val in myobj) console.log(myobj[val]);//working
+
+        // Spread operator in object
+        let myobj2 = { ...myobj };
+        let myobj3 = { ...myobj, key3: "value3", key3: "valueLastWali" };  //!same key so last
+        // console.log(myobj2);
+        // console.log(myobj3);
+
+        let myobj4 = { ..."abc" }; // key 0,1,....
+        // console.log("myobj4",myobj4);
+
+        //Destructing objects
+        const z98 = {
+            job: "software",
+            salary: 2,
+            gender: "male"
+        };
+        // let {job,salary}=z98;   // by dafault variables name === key, must hai
+        // console.log(job,salary);
+
+        // let { job, salary, ...newObj } = z98;
+        // let { salary, job, ...newObj } = z98;  //order doesn't matter becoz name===key
+        // console.log(job,salary,newObj);
+        // job="Data";     //proof of variable
+        // salary=3;
+        // console.log(job,salary);
+
+        //let {job:post,salary:stipend}=z98;    // change variables name
+        //console.log(post,stipend);
+
+        const z99 = {
+            job: "analyst",
+            salary: 1,
+            gender: "female"
+        };
+        const z100={z98,z99};
+        // console.log(z100);
+
+        //destructing
+        const {z99:new_obj}=z100;       //can extract less variables than available
+        // console.log(z);      //undefined
+        console.log(new_obj);
+    </script>
+</body>
+</html>

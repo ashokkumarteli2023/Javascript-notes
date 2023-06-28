@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revision</title>
+    <link rel="stylesheet" href="./style.css">
+        <!-- <link rel="stylesheet" href="./basic.js"> don't work-->
+        <!-- <script src="./basic.js"></script> don't prefer-->
+        <!-- <script src="./basic.js" defer></script>     -->                    <!-- o/p -> at last -->
+</head>
+<body>
+        <!-- <script src="./basic.js"></script> -->
+        <h1 >This is the heading </h1>
+        <p class="demo">paragraph-1</p>
+        <span>span tag</span>
+        <br>
+        
+        <!-- to write js in html we'll use script tag -->
+        <script>
+        // alert("hi");
+        // console.warn("Hey, stay safe"); //warning symbols in console o/p
+        // console.error("This is an error"); //error symbols in console o/p
+        
+        //Variables 
+        //var function scope 
+        //let and const block scope
+        { 
+            let num6=4;
+            var num7=8;
+            // console.log(num6);
+            // console.log(num7);
+        }
+        // console.log(num7); //work
+        // console.log(num6); // error
+
+        // let a=5; // const, var, can start (_ or $), no other symbols can be used anywhere,(ex let a1 -> valid)
+        // let _b=4; // let $c=3; // let a_b$c=2;
+        // document.write(a," ",_b," ",$c," ",a_b$c); // o/p in Web-page
+        
+        // You can use the JavaScript typeof operator to find the type of a JavaScript variable.
+        // document.write("<br>",typeof a);  //number (!int/float)
+        // a=3.12345;
+        // document.write("<br>",typeof a);  //number
+        // a='c'; document.write("<br>",typeof a);  //string (!char)
+        // a="Ashok";
+        // document.write("<br>",typeof a);  //String
+        // document.write("<br>",typeof false); //boolean
+
+        // document.write("<br>",a.length);  // only length (always in js)
+        // a=[1,2,3]; document.write("<br>",a.length);  
+
+        // console.log(3);  
+        // console.log('3'); //string in black (siri kala pd jav ch)
+        // console.log(5+7); //int
+        
+        // var a1;
+        // console.log(a1); //by default undefined
+        // var und=undefined;
+        // console.log(und);
+        // console.log(undefined);
+        // und=null;
+        // console.log(und);
+
+        //BigInt -> math predefined function mai use nhi kr skte 
+        // JavaScript integers are only accurate up to 15 digits:
+        // let bigNum=BigInt(21362846234265872365932); //way 1
+                //  o/p- 21362846234265870401536n
+        // let bigNum=BigInt(21362846234265870401537); 
+                //  o/p- 21362846234265870401536n
+        // let bigNum=BigInt(21362846234265870401533); 
+        // let bigNum=BigInt(4873285832567); 
+                //   o/p- 4873285832567n
+
+        // let bigIntNum=127846387420472843n;
+        // console.log(bigNum,bigIntNum);
+        // console.log(bigNum+bigIntNum); // both must be BigInt type
+
+
+
+// == v/s ===
+// let z11=7;
+// let z12=7;
+// let z13="7";
+// console.log(z11==z12);
+// console.log("compare value only",z11==z13);  // True ->compare only value(! data type)
+// console.log(z11===z13);
+
+//  != v/s !==
+// console.log(z11!=z12);
+// console.log(z11!=z13); // same concept
+// console.log(z11!==z13); 
+
+// Falsy values -> 
+        // false, null, "", 0, undefined
+//  -1 truthy value 
+
+//Ternary operator
+// let z21=9;
+// let z22= z21>7?11:5;
+// console.log("z22 is",z22);
+
+//Input
+// let z31=prompt("enter a number");
+// console.log(typeof z31, z31);  // by defult string 
+// let z32=+prompt("enter another number");  // dataType ->  number
+// console.log(typeof z32, z32);  
+// console.log("value of z32 is",z32); or 
+// console.log(`value of z32 is ${z32}`); both ===
+
+//primitive
+// let z41=3;
+// let z42=z41;
+// console.log(z41, z42); //3,3
+// z41++; // stack & different address or memory
+// console.log(z41, z42);  //4,3
+
+//reference
+// let z51=["A", "S"];
+// let z52=z51;
+// console.log(z51,z52);
+// z51.push("T"); // address ->stack & memory->heap
+// console.log(z51,z52);
+
+// When a JavaScript variable is declared with the keyword "new", the variable is created as an object:
+// x = new String();        // Declares x as a String object
+// y = new Number();        // Declares y as a Number object
+// z = new Boolean();       // Declares z as a Boolean object
+// Avoid String, Number, and Boolean objects. They complicate your code and slow down execution speed.
+</script> 
+
+<!-- <script src="./basic.js"></script> -->
+</body>
+</html>
+                    

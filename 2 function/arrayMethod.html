@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <h1>All about array methods</h1>
+    <script>
+        
+        //arrayName.forEach(functioName);
+       
+        const arr1=[1,2,3,4,5];
+        const printNumInd=function(num,ind){
+            console.log(num,"&",ind);
+        }
+        // arr1.forEach(printNumInd);               //as a callback
+
+       // another way
+        arr1.forEach(function(number,index) //can use arrow function
+        {
+            // console.log(number*2,index);
+        });
+        
+
+        //******Map******//
+                //same as forEach (mtlb callback)
+                //return an array 
+                //arrayName.map(functionName)
+
+        const mArray=arr1.map((chi,par)=>               //chi->Number, par->index
+        {
+            // return chi*chi;
+            // console.log(`Number:${chi} , Index:${par}`); //by default return undefined so cruicial to return in case of map
+            return par; //index se bn rha array
+        });
+        // console.log(mArray);
+        
+
+        //******Filter******//
+                //same callback, same syntax
+                //return array 
+                // store only when return is true(return false/true)
+
+        const isEvenNum=num =>  num%2===0;
+        const filArray=arr1.filter(isEvenNum);
+        // console.log(filArray,"end");
+
+        const filArray1=arr1.filter((p,pp)=>
+        {
+            // return pp%2===0;                // true then return value at given index
+        });
+        // console.log(filArray1,"end");
+        
+
+        //******Reduce******//
+                //return a single value, callback
+                //to understand let's try to find out sum of a given array
+
+        const arrSum=arr1.reduce((accumulator,currentValue)=>
+        {
+            return accumulator+currentValue;
+        }); //({},0); default value of accumulator 0 & currentValue will start from 1 (arr1[0]&arr1[1])
+        // console.log(arrSum,"end");
+        // accumulator    currentvalue      return
+        //    1                  2                 3 //by default accumulator = arr1[0]
+        //    3                  3                 6 //return = accumulator
+        //    6                  4                 10
+        //    10                  5                 15
+
+        const arrDataMicro=[
+            {name:"a",post:"Software",stipend:100000},
+            {name:"b",post:"Software Data",stipend:200000},
+            {name:"c",post:"Software manager",stipend:300000}
+        ];
+        //total stipend
+        const totStipend=arrDataMicro.reduce((totalStipend,person)=>{
+            // console.log(typeof totalStipend);  //number
+            return totalStipend+person.stipend;
+        },0); // totalStipend =0
+        // console.log("TotalStipend: ",totStipend);
+
+        
+        //Sort function         syntax - arrayName.sort()
+            // change the original array
+        const unsortArr=[123,4,565,24,976,64]; 
+        // console.log(`type: ${typeof unsortArr[0]}`);         //number
+            //sort function sort by assuming data as a string
+        // unsortArr.sort(); 
+        // console.log(unsortArr,"end");
+
+        unsortArr.sort((a,b)=> a-b); //sort also work with callback
+        // ascending
+        // descending b-a
+
+        //if a-b >0     ans=b,a
+        // ex. a=123, b=4      a-b=119 > 0   => 4,123
+        
+        // console.log(unsortArr,"end"); 
+
+    // uses => amazon/flipkart
+    // lowToHigh etc.
+    const fliItem=[
+        {brand:"vivo",price:182393},
+        {brand:"apple",price:838838},
+        {brand:"oppo",price:23012},
+    ];
+    // fliItem.sort((a,b)=> a.price-b.price); //lowToHigh but chnage the original array so we will use cloning
+ 
+    const newfillitem=fliItem.slice(0).sort((a,b)=> a.price-b.price); 
+            //another way
+            // let [...newfillitem]=fliItem;
+            // newfillitem.sort((a,b)=> a.price-b.price); 
+    // console.log("Original",fliItem);
+    // console.log("Cloned",newfillitem);
+
+
+    //Find function         use callback
+        // 1st element that satisfy the callback requirement
+    const arrDataGoogle=[
+            {personId:1,name:"a",post:"Software",stipend:100000},
+            {personId:2,name:"b",post:"Software Data",stipend:200000},
+            {personId:3,name:"c",post:"Software manager",stipend:300000}
+        ];
+    const dataOfId2=arrDataGoogle.find(obj1 => obj1.personId===2);
+    // console.log(dataOfId2);
+
+    
+    //Every function     use callback
+        //return true/false
+        //if all satisfy then true else false
+    const num11=[2,4,6,8];
+    let isEven1=num11.every(var1 => var1%2===0);
+    // console.log(isEven1,"end");
+
+    num11.push(1);
+    isEven1=num11.every(var1 => var1%2===0);
+    // console.log(isEven1);
+
+    
+    //Some function      use callback
+        //return true/false
+        //if at least one satisfy then true else false
+    isEven1=num11.some(var1 => var1%2===0);
+    // console.log(isEven1,"end");
+
+    num11.pop();
+    let isNotEven1=num11.some(var1 => var1%2!==0);
+    // console.log(isNotEven1);
+            //application => check if any product have the price > 100000 
+
+
+    //Fill method
+        //fill complete array with a given length and value
+    const arrUsingFill=new Array(10).fill(0);
+    // console.log(arrUsingFill);
+
+    //fill already filled array with given value
+    // mutable
+    const givenArr=[1,2,3,4,5,6,7];
+    // givenArr.fill(0,2,6); //arrayName.fill(value,start,end) ,   end excluded & start and end are indexes
+    // console.log(givenArr,"end");
+
+
+    //Splice Method
+        //mutable,  (startInd,deleteCount,insert)
+        //it returns deleted items
+    // const deletedItems=givenArr.splice(4,3);
+    // console.log("Original",givenArr,"Deleted",deletedItems);
+
+    // const deletedItems=givenArr.splice(4,0,777);//insert at idx 4
+    // console.log("Original",givenArr,"Deleted",deletedItems);
+
+    // const deletedItems=givenArr.splice(2,2,6,777,888);
+    // console.log("Original",givenArr,"Deleted",deletedItems);
+
+    
+    //Iterables 
+        //in which we can use **for of loop**  ex. string,array etc.
+    const str="Ashok";
+    // for(let char of str) 
+    // console.log(char);
+
+    const obj2={name:"Ashok", age:20};      //! iterables
+    // for(let var2 of obj2)
+    // console.log(var2);
+    // console.log("emd");
+
+
+    //Array like objects
+        // length property and can access using index   ex. string
+        // for(let i=0;i<str.length;i++)
+        // console.log(str[i]);
+    </script>
+</body>
+</html>
